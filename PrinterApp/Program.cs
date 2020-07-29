@@ -32,8 +32,8 @@ namespace PrinterApp
                 threadsProducer[i].Name = prodId;
                 threadsProducer[i].Start();
             }
-
         }
+        
         public class Producer
         {
             public static void producer(string name, Queue queue)
@@ -52,15 +52,12 @@ namespace PrinterApp
                             try
                             {
                                 queue.addBack(printjob);
-
                                 files.Remove(files[0]);
-
                             }
                             catch (FullQueueException)
                             {
                                 Console.WriteLine("Fila cheia.");    
                             }
-
                             Console.WriteLine( name + " produzindo arquivo " + printjob.getJobName() + ", número de páginas: " + printjob.getNumberOfPages());
                             Monitor.PulseAll(locker);
                             Thread.Sleep(FormulasHelper.RandomTime());
@@ -68,7 +65,6 @@ namespace PrinterApp
                     }
                 }
             }
-
         }
 
         public class Printer
@@ -76,7 +72,6 @@ namespace PrinterApp
             public static void printer(string name, Queue queue)
             {
                 const long MILLIS_PER_PAGE = 500;
-
                 Console.WriteLine("[" + name + "]: Ligando...");
 
                 while (true)
@@ -115,6 +110,7 @@ namespace PrinterApp
                     }
                 }
             }
+            
             public static void halt()
             {
                 lock (locker)
@@ -123,6 +119,7 @@ namespace PrinterApp
                 }
             }
         }
+        
         public interface Queue
         {
             public void addBack(PrintJob job);
