@@ -1,6 +1,6 @@
 # printer-app
-Console Application
-Servidor de Impressão
+Servidor de Impressão\
+Console Application\
 **Framework:** .Net Core 3.1
 
 ## Instruções
