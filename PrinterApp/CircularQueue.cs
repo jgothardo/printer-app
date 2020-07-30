@@ -12,9 +12,9 @@ namespace PrinterApp
                 Capacity = capacity;
             }
 
-            public static int Capacity { get; set; }
+            public static int Capacity;
 
-            internal static Queue<PrintJob> JobQueue { get; } = new Queue<PrintJob>();
+            internal static Queue<PrintJob> JobQueue = new Queue<PrintJob>();
 
             public void addBack(PrintJob job)
             {
